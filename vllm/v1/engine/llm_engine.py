@@ -232,6 +232,7 @@ class LLMEngine:
         tokenization_kwargs: Optional[dict[str, Any]] = None,
         trace_headers: Optional[Mapping[str, str]] = None,
         priority: int = 0,
+        tier: float = 1,
         prompt_text: Optional[str] = None,
     ) -> None:
         # Validate the request_id type.

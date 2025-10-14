@@ -348,6 +348,7 @@ class Processor:
         tokenization_kwargs: Optional[dict[str, Any]] = None,
         trace_headers: Optional[Mapping[str, str]] = None,
         priority: int = 0,
+        tier: float = 1,
         data_parallel_rank: Optional[int] = None,
     ) -> EngineCoreRequest:
         self._validate_lora(lora_request)

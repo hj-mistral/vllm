@@ -654,6 +654,16 @@ class ChatCompletionRequest(OpenAIBaseModel):
             "if the served model does not use priority scheduling."
         ),
     )
+    tier: float = Field(
+        default=1,
+        ge=0,
+        le=1,
+        description=(
+            "The tier of the request (higher means more access; "
+            "default: 1. - full access). This value should be between "
+            "0 and 1, and should represent the proportion of vllm"
+            "occupancy at which to drop the request."),
+    )
     request_id: str = Field(
         default_factory=lambda: f"{random_uuid()}",
         description=(
@@ -1210,6 +1220,16 @@ class CompletionRequest(OpenAIBaseModel):
             "default: 0). Any priority other than 0 will raise an error "
             "if the served model does not use priority scheduling."
         ),
+    )
+    tier: float = Field(
+        default=1,
+        ge=0,
+        le=1,
+        description=(
+            "The tier of the request (higher means more access; "
+            "default: 1. - full access). This value should be between "
+            "0 and 1, and should represent the proportion of vllm"
+            "occupancy at which to drop the request."),
     )
     request_id: str = Field(
         default_factory=lambda: f"{random_uuid()}",
